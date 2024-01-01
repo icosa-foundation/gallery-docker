@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  node-frontend:
+    build: ./gallery-web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - fastapi-server
+    env_file:
+      - .env
+
+  fastapi-server:
+    build: ./gallery-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: postgres:latest
+    volumes:
+      - ./gallery-data
+    env_file:
+      - .env
