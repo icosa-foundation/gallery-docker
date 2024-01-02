@@ -4,7 +4,7 @@
     "dblocation" : "localhost",
     "secret_key" : "key",
     "gcloud_bucket_name" : "your-bucket-name",
-    "service_account_data" : "path.to.json",
+    "service_account_data" : "gcp-service-account.json",
     "poly_api_key" : "your-key",
     "sendgrid" : {
         "domain" : "example.com",

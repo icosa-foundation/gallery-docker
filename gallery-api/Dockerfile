@@ -10,6 +10,7 @@ RUN git checkout open-brush-integration
 
 # Copy the config file into the container
 COPY config.json ./
+COPY gcp-service-account.json ./
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt

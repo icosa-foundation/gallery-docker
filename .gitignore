@@ -1,4 +1,8 @@
 
+# Secrets
 .env
 config.json
+/gcp-service-account.json
+
+# IDE Files
 .idea/*
