@@ -20,6 +20,7 @@ services:
       - "8000:8000"
     volumes:
       - ./config.json:/usr/src/app/config.json
+      - ./gcp-service-account.json:/usr/src/app/gcp-service-account.json
     depends_on:
       - db
     env_file:
