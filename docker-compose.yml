@@ -2,6 +2,7 @@ version: '3.8'
 
 volumes:
   gallery-data:
+    external: false
 
 services:
   node-frontend:
