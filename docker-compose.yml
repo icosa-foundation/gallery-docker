@@ -1,5 +1,8 @@
 version: '3.8'
 
+volumes:
+  gallery-data:
+
 services:
   node-frontend:
     build: ./gallery-web
@@ -24,6 +27,6 @@ services:
   db:
     image: postgres:latest
     volumes:
-      - ./gallery-data
+      - gallery-data:/var/lib/postgresql/data
     env_file:
       - .env
