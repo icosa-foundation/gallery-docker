@@ -1,0 +1,15 @@
+{
+    "dbuser" : "username",
+    "dbpassword" : "password",
+    "dblocation" : "localhost",
+    "secret_key" : "key",
+    "gcloud_bucket_name" : "your-bucket-name",
+    "service_account_data" : "path.to.json",
+    "poly_api_key" : "your-key",
+    "sendgrid" : {
+        "domain" : "example.com",
+        "send_user" : "noreply@example.com",
+        "api_key" : "your-key",
+        "reset_password_template" : "templateid"
+    }
+}
