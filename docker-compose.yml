@@ -2,20 +2,20 @@ version: '3.8'
 
 volumes:
   gallery-data:
-    external: false
 
 services:
-  node-frontend:
+  web:
     build: ./gallery-web
+    container_name: ig-web
     ports:
       - "3000:3000"
     depends_on:
-      - fastapi-server
-    env_file:
-      - .env
+      - api
+    env_file: .env
 
-  fastapi-server:
+  api:
     build: ./gallery-api
+    container_name: ig-api
     ports:
       - "8000:8000"
     volumes:
@@ -23,12 +23,14 @@ services:
       - ./gcp-service-account.json:/usr/src/app/gcp-service-account.json
     depends_on:
       - db
-    env_file:
-      - .env
+    env_file: .env
 
   db:
-    image: postgres:latest
+    image: postgres:16.2
+    container_name: ig-db
+    ports:
+      - 5432:5432
+
     volumes:
       - gallery-data:/var/lib/postgresql/data
-    env_file:
-      - .env
+    env_file: .env

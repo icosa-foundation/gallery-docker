@@ -8,10 +8,6 @@ WORKDIR /usr/src/app
 RUN git clone https://github.com/icosa-foundation/gallery-api .
 RUN git checkout open-brush-integration
 
-# Copy the config file into the container
-COPY config.json ./
-COPY gcp-service-account.json ./
-
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -22,4 +18,4 @@ EXPOSE 8000
 ENV NAME World
 
 # Run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
