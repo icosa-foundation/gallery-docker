@@ -34,3 +34,14 @@ services:
     volumes:
       - gallery-data:/var/lib/postgresql/data
     env_file: .env
+
+  proxy:
+    image: nginx:latest
+    container_name: ig-proxy
+    depends_on:
+        - web
+    ports:
+        - "80:80"
+    volumes:
+        - ./nginx/sites-enabled:/etc/nginx/conf.d/
+
